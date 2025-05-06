@@ -15,11 +15,14 @@ function App() {
   }, [tasks]);
 
   const addTask = () => {
-    if (input.trim()) {
+    if (input.trim().length >= 2) {
       setTasks([...tasks, { text: input, completed: false }]);
       setInput('');
+    } else {
+      alert('Task must be at least 2 characters long!');
     }
   };
+  
 
   const deleteTask = (index) => {
     const newTasks = tasks.filter((_, i) => i !== index);
